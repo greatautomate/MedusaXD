@@ -20,7 +20,6 @@
             --neon-magenta: #ff00ff;
             --neon-blue: #0080ff;
             --text-primary: #ffffff;
-            --text-secondary: #b0b3c1;
         }
 
         body {
@@ -29,6 +28,11 @@
             color: var(--text-primary);
             overflow-x: hidden;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         /* Cursor Trail */
@@ -41,7 +45,6 @@
             pointer-events: none;
             z-index: 9999;
             opacity: 0.6;
-            transition: opacity 0.3s ease;
         }
 
         /* Geometric Rain */
@@ -90,59 +93,22 @@
             }
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            padding: 10px 20px;
-            transition: all 0.3s ease;
-        }
-
-        nav:hover {
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.3);
-        }
-
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
+        /* Main Content */
+        .main-content {
             z-index: 10;
+            position: relative;
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 8rem);
+        .main-title {
+            font-size: clamp(3rem, 10vw, 10rem);
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: glow 2s ease-in-out infinite alternate;
+            letter-spacing: -0.02em;
         }
 
         @keyframes glow {
@@ -154,142 +120,14 @@
             }
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.5s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
-            color: var(--text-primary);
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 1s;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        .about h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 60px;
-            color: var(--neon-cyan);
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--neon-cyan);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .contact h2 {
-            font-size: 3rem;
-            margin-bottom: 40px;
-            color: var(--neon-magenta);
-        }
-
-        .contact-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin-top: 40px;
-        }
-
         .telegram-link {
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            background: linear-gradient(45deg, #0088cc, var(--neon-cyan));
-            color: white;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
             padding: 20px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -301,55 +139,20 @@
 
         .telegram-link:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 136, 204, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
         }
 
         .telegram-icon {
             width: 24px;
             height: 24px;
-            background: white;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0088cc;
+            color: white;
             font-weight: bold;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--glass-border);
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                right: 10px;
-                top: 10px;
-                padding: 8px 15px;
-            }
-
-            nav a {
-                margin: 0 8px;
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 4rem;
-            }
-
-            .about, .contact {
-                padding: 60px 15px;
-            }
-
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
         }
 
         /* Loading Animation */
@@ -386,6 +189,19 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 4rem;
+                margin-bottom: 30px;
+            }
+
+            .telegram-link {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -400,58 +216,14 @@
     <!-- Geometric Rain -->
     <div class="rain-container" id="rainContainer"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>I AM MEDUSAXD</h1>
-        <p>Welcome to my digital realm where creativity meets technology</p>
-        <a href="#about" class="cta-button">Explore More</a>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2>About Me</h2>
-        <div class="cards-container">
-            <div class="card">
-                <div class="card-icon">🚀</div>
-                <h3>Innovation</h3>
-                <p>Pushing boundaries and exploring new frontiers in technology and creativity.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Performance</h3>
-                <p>Delivering high-quality solutions with speed and precision.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🎨</div>
-                <h3>Design</h3>
-                <p>Creating visually stunning and user-friendly experiences.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-card">
-            <p>Ready to connect? Let's start a conversation!</p>
-            <a href="https://t.me/medusaXD" target="_blank" class="telegram-link">
-                <span class="telegram-icon">@</span>
-                Contact on Telegram
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 MedusaXD. All rights reserved.</p>
-    </footer>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="main-title">I AM MEDUSAXD</h1>
+        <a href="https://t.me/medusaXD" target="_blank" class="telegram-link">
+            <span class="telegram-icon">@</span>
+            Telegram
+        </a>
+    </div>
 
     <script>
         // Loading Screen
@@ -502,51 +274,6 @@
         }
 
         setInterval(createRainParticle, 200);
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.rain-container');
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
-        });
-
-        // Dynamic Background Intensity
-        window.addEventListener('scroll', () => {
-            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-            const intensity = 0.3 + (scrollPercent * 0.4);
-            document.body.style.setProperty('--glass-bg', `rgba(255, 255, 255, ${intensity})`);
-        });
     </script>
 </body>
 </html>
